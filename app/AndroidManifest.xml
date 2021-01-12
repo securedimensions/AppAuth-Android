@@ -45,6 +45,13 @@
                 android:windowSoftInputMode="stateHidden" >
         </activity>
 
+        <activity
+            android:name=".LogoutActivity"
+            android:label="@string/app_name_short"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+
         <!--
         This activity declaration is merged with the version from the library manifest.
         It demonstrates how an https redirect can be captured, in addition to or instead of

@@ -390,17 +390,8 @@ public class TokenActivity extends AppCompatActivity {
 
     @MainThread
     private void signOut() {
-        // discard the authorization and token state, but retain the configuration and
-        // dynamic client registration (if applicable), to save from retrieving them again.
-        AuthState currentState = mStateManager.getCurrent();
-        AuthState clearedState =
-                new AuthState(currentState.getAuthorizationServiceConfiguration());
-        if (currentState.getLastRegistrationResponse() != null) {
-            clearedState.update(currentState.getLastRegistrationResponse());
-        }
-        mStateManager.replace(clearedState);
 
-        Intent mainIntent = new Intent(this, LoginActivity.class);
+        Intent mainIntent = new Intent(this, LogoutActivity.class);
         mainIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(mainIntent);
         finish();

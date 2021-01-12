@@ -598,9 +598,22 @@ public class AuthorizationService {
                 wr.write(postData);
                 wr.flush();
 
-                is = conn.getInputStream();
-                String response = Utils.readInputStream(is);
-                return new JSONObject(response);
+                int code = conn.getResponseCode();
+                if ((code == 200) ||(code == 201)) {
+                    is = conn.getInputStream();
+                    String response = Utils.readInputStream(is);
+                    return new JSONObject(response);
+                }
+                else
+                {
+                    is = conn.getErrorStream();
+                    String response = Utils.readInputStream(is);
+                    JSONObject json = new JSONObject(response);
+                    Logger.debug("Failed to complete registration request: %s", response);
+                    mException = AuthorizationException.fromOAuthTemplate(
+                        GeneralErrors.INVALID_REGISTRATION_RESPONSE, json.getString("error"), json.getString("error_description"), null);
+                }
+
             } catch (IOException ex) {
                 Logger.debugWithStack(ex, "Failed to complete registration request");
                 mException = AuthorizationException.fromTemplate(

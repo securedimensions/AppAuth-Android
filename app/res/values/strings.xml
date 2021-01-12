@@ -28,4 +28,8 @@
     <string name="access_token_expired">Access token has expired</string>
     <string name="auth_settings">Authorization settings in use:</string>
     <string name="use_pending_intents">Use PendingIntent\'s for completion</string>
+    <string name="clear_state">Clear State</string>
+    <string name="log_out">Log out</string>
+    <string name="logout_state_value">Logout state value (optional)</string>
+    <string name="ready_logout">Log out options</string>
 </resources>
