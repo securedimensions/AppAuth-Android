@@ -1,5 +1,5 @@
 {
-  "client_id": "ecd8e3e3-b266-3740-1475-87ae758f4d6a",
+  //"client_id": "",
   "redirect_uri": "net.openid.appauthdemo:/oauth2redirect",
   "authorization_scope": "openid profile offline_access",
   "discovery_uri": "https://www.authenix.eu/.well-known/openid-configuration",
